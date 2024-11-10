@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Menu, { loader as getMenuLoader } from "../../../src/features/menu/Menu";
+import Home from "../../../src/ui/Home";
+import AppLayout from "../../../src/ui/AppLayout";
+import Cart from "../../../src/features/cart/Cart";
+import CreateOrder, {
+  action as formAction,
+} from "../../../src/features/order/CreateOrder";
+import Order, {
+  loader as getOrderLoader,
+} from "../../../src/features/order/Order";
+import Error from "../../../src/ui/Error";
+
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    errorElement: <Error />,
+
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+
+      {
+        path: "/menu",
+        element: <Menu />,
+        loader: getMenuLoader,
+        errorElement: <Error />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/order/new",
+        element: <CreateOrder />,
+        action: formAction,
+      },
+      {
+        path: "/order/:orderId",
+        element: <Order />,
+        errorElement: <Error />,
+        loader: getOrderLoader,
+      },
+    ],
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
