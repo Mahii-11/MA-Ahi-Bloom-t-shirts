@@ -11,7 +11,7 @@ function OrderItem({ item }) {
           {name}
         </p>
       </div>
-      <p className="text-lg font-semibold text-gray-700">
+      <p className="text-lg font-semibold text-indigo-500">
         {formatCurrency(totalPrice)}
       </p>
     </li>
