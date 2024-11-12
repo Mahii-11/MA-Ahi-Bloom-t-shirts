@@ -1,6 +1,7 @@
 import { Form, redirect, useNavigation, useActionData } from "react-router-dom";
 import { createOrder } from "../../services/apiTshirt";
 import { useSelector } from "react-redux";
+import { getCart } from "../cart/cartSlice";
 
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
@@ -8,6 +9,7 @@ const isValidPhone = (str) =>
   );
 
 function CreateOrder() {
+  const cart = useSelector(getCart);
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const formErrors = useActionData();
