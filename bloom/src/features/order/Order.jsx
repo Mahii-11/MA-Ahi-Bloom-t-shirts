@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { getOrder } from "../../services/apiTshirt";
+import OrderItem from "./OrderItem";
 import {
   calcMinutesLeft,
   formatCurrency,
@@ -35,6 +36,11 @@ function Order() {
           (Estimated delivery: {formatDate(estimatedDelivery)})
         </p>
       </div>
+      <ul>
+        {cart.map((item) => (
+          <OrderItem item={item} key={item.id} />
+        ))}
+      </ul>
 
       <div className="border-t border-gray-700 pt-4 space-y-2">
         {cart.map((item) => (
