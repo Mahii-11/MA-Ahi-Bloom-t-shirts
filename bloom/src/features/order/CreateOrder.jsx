@@ -7,55 +7,12 @@ const isValidPhone = (str) =>
     str
   );
 
-const fakeCart = [
-  {
-    id: 1,
-    imageUrl: "http://localhost:3008/bloom/tshirts-1.jpg",
-    name: "Everyday Essentials",
-    quantity: 1,
-    unitPrice: 78,
-    totalPrice: 78,
-  },
-  {
-    id: 2,
-    imageUrl: "http://localhost:3008/bloom/tshirts-2.jpg",
-    name: "Timeless Classic",
-    quantity: 1,
-    unitPrice: 70,
-    totalPrice: 70,
-  },
-  {
-    imageUrl: "http://localhost:3008/bloom/tshirts-3.jpg",
-    id: 3,
-    name: "Casual Comfort",
-    quantity: 1,
-    unitPrice: 73,
-    totalPrice: 73,
-  },
-  {
-    id: 4,
-    imageUrl: "http://localhost:3008/bloom/tshirts-4.jpg",
-    name: "Simply Stylish",
-    quantity: 2,
-    unitPrice: 76,
-    totalPrice: 152,
-  },
-  {
-    id: 5,
-    imageUrl: "http://localhost:3008/bloom/tshirts-5.jpg",
-    name: "Vibe Check",
-    quantity: 1,
-    unitPrice: 68,
-    totalPrice: 68,
-  },
-];
-
 function CreateOrder() {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const formErrors = useActionData();
   const username = useSelector((state) => state.user.username);
-  const cart = fakeCart;
+
   return (
     <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md my-28">
       <h2 className="text-2xl font-bold mb-4 text-center">
