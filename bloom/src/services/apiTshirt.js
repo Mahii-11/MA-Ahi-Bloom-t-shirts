@@ -1,4 +1,4 @@
-const API_URL = "https://localrepo-ddnm.onrender.com/api";
+const API_URL = "https://localrepo-1-vgjl.onrender.com/api/";
 
 export async function getTshirt() {
   const res = await fetch(`${API_URL}/menu`);
