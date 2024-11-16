@@ -45,7 +45,7 @@ function Order() {
       <div className="border-t border-gray-700 pt-4 space-y-2">
         {cart.map((item) => (
           <div
-            key={item.pizzaId}
+            key={item.id}
             className="flex justify-between text-sm sm:text-base"
           >
             <p className="text-gray-300">

@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5005";
+const API_URL = "http://localhost:5005/api";
 
 export async function getTshirt() {
   const res = await fetch(`${API_URL}/menu`);

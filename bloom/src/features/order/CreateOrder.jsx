@@ -45,7 +45,9 @@ function CreateOrder() {
             required
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
-          {formErrors?.phone && <p>{formErrors.phone}</p>}
+          {formErrors?.phone && (
+            <p className="text-red-500">{formErrors.phone}</p>
+          )}
         </div>
 
         <div>
